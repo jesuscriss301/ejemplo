@@ -11,6 +11,8 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.ejemplo.databinding.ActivityMainBinding
 import com.example.ejemplo.modelo.Cuenta
+import com.example.ejemplo.modelo.agenda.Agenda
+import com.example.ejemplo.modelo.agenda.Contacto
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +43,20 @@ class MainActivity : AppCompatActivity() {
         println("${cuenta1} \n ${cuenta2}")
         println("${cuenta2.transferencia(100000.0,cuenta1, false)}")
         println("${cuenta1} \n ${cuenta2}")
+
+
+        println("===================Agenda===================")
+        var contacto:Contacto= Contacto("Juan Mecanico", "niñatravieza@gmail.com")
+        var contacto2: Contacto= Contacto("mario", 322233485)
+
+        var agenda:Agenda = Agenda(contacto)
+        agenda.AñadirContacto(contacto2)
+        println(agenda.toString())
+        println( "${agenda.buscarContacto("mario")}")
+        contacto.setEmail("tecnomecanicaJuan@micanica.org")
+        var contacto3:Contacto = Contacto("maria", 3117378399)
+        println("contancto editado${agenda.editarContacto("mario", contacto3)}")
+        println(agenda.toString())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
