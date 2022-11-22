@@ -10,9 +10,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.ejemplo.databinding.ActivityMainBinding
+import com.example.ejemplo.modelo.Calculadora
 import com.example.ejemplo.modelo.Cuenta
 import com.example.ejemplo.modelo.agenda.Agenda
 import com.example.ejemplo.modelo.agenda.Contacto
+import java.util.Scanner
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,7 +59,20 @@ class MainActivity : AppCompatActivity() {
         var contacto3:Contacto = Contacto("maria", 3117378399)
         println("contancto editado${agenda.editarContacto("mario", contacto3)}")
         println(agenda.toString())
+        println("===================Calculadora===================")
+
+        var cal =Calculadora()
+        println(cal.toString())
+        /*menu de operaciones
+        * 1 suma
+        * 2 resta
+        * 3 multiplicacion
+        * 4 division
+        * otros null
+        * */
+        println( cal.operacion())
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
